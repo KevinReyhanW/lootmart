@@ -1,0 +1,13 @@
+/* Example of component-specific styles that can't be handled by Tailwind alone */
+.pixelButton {
+  image-rendering: pixelated;
+  transition: transform 0.1s ease-in-out;
+}
+
+.pixelButton:hover {
+  transform: translateY(-2px);
+}
+
+.pixelButton:active {
+  transform: translateY(1px);
+}
