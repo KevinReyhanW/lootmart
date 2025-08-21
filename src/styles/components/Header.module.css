@@ -1,0 +1,20 @@
+.navLink {
+  @apply px-6 py-2 text-center relative transition-transform w-full h-full flex items-center justify-center;
+  min-height: 40px;
+}
+
+.navLink[data-active="true"],
+.navLink:hover {
+  background-image: url('/images/ui/button/button-brown.png');
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  image-rendering: pixelated;
+}
+
+.authButton {
+  @apply px-4 py-2 text-center transition-transform hover:scale-105;
+  background-image: url('/images/ui/button/button-brown.png');
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  image-rendering: pixelated;
+}
