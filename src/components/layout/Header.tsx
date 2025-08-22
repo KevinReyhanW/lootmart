@@ -24,10 +24,10 @@ export default function Header() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           
-          {/* Logo */}
+          {/* Logo - Far left */}
           <Link 
             href="/" 
-            className="flex items-center space-x-2 hover:opacity-90 transition-opacity"
+            className="flex items-center space-x-2 hover:opacity-90 transition-opacity mr-4"
           >
             <Image 
               src={lootmartIcon} 
@@ -40,8 +40,8 @@ export default function Header() {
             <span className="text-2xl font-bold text-[#5a3921] hidden sm:block font-pixel">LootMart</span>
           </Link>
 
-          {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-2">
+          {/* Desktop Navigation - Centered */}
+          <nav className="hidden md:flex items-center space-x-2 mx-auto">
             {navItems.map((item) => (
               <Link
                 key={item.name}
@@ -50,7 +50,6 @@ export default function Header() {
                 style={{
                   backgroundImage: `url(${buttonTile.src})`,
                   backgroundSize: "100% 100%",
-                  imageRendering: "pixelated",
                   border: pathname === item.path ? '2px solid #5a3921' : '2px solid transparent'
                 }}
               >
@@ -72,7 +71,6 @@ export default function Header() {
                 style={{
                   backgroundImage: `url(${buttonTile.src})`,
                   backgroundSize: "100% 100%",
-                  imageRendering: "pixelated",
                   borderLeft: '2px solid #7a5c2d'
                 }}
               >
@@ -83,8 +81,8 @@ export default function Header() {
             </div>
           </div>
 
-          {/* Right Side Items */}
-          <div className="flex items-center space-x-3">
+          {/* Right Side Items - Far right */}
+          <div className="flex items-center space-x-4 ml-auto">
             {/* Mobile Search Toggle */}
             <button 
               className="md:hidden p-2 text-[#5a3921] hover:scale-105 transition-transform"
@@ -92,7 +90,6 @@ export default function Header() {
               style={{
                 backgroundImage: `url(${buttonTile.src})`,
                 backgroundSize: "100% 100%",
-                imageRendering: "pixelated",
                 width: "44px",
                 height: "44px"
               }}
@@ -102,53 +99,35 @@ export default function Header() {
               </svg>
             </button>
 
-            {/* Cart */}
+            {/* Cart - No background */}
             <Link 
               href="/cart" 
               className="relative p-2 text-[#5a3921] hover:scale-105 transition-transform"
-              style={{
-                backgroundImage: `url(${buttonTile.src})`,
-                backgroundSize: "100% 100%",
-                imageRendering: "pixelated",
-                width: "44px",
-                height: "44px"
-              }}
             >
-              <svg className="w-5 h-5 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
               </svg>
               {cartCount > 0 && (
-                <span className="absolute -top-2 -right-2 bg-red-600 text-white text-xs w-6 h-6 rounded-full flex items-center justify-center border-2 border-[#f0d8b0] font-bold">
+                <span className="absolute -top-1 -right-2 bg-red-600 text-white text-xs w-5 h-5 rounded-full flex items-center justify-center font-bold">
                   {cartCount}
                 </span>
               )}
             </Link>
 
-            {/* User Actions */}
-            <div className="hidden sm:flex items-center space-x-3">
+            {/* User Actions - Far right, no background */}
+            <div className="hidden sm:flex items-center space-x-4">
               <Link 
                 href="/auth/login" 
-                className="px-4 py-2 text-sm font-bold text-[#5a3921] hover:scale-105 transition-transform text-center"
-                style={{
-                  backgroundImage: `url(${buttonTile.src})`,
-                  backgroundSize: "100% 100%",
-                  imageRendering: "pixelated",
-                  minWidth: "90px"
-                }}
+                className="px-3 py-1 text-sm font-bold text-[#5a3921] hover:text-[#7a5c2d] transition-colors"
               >
                 Sign in
               </Link>
+              <span className="text-[#5a3921]">|</span>
               <Link 
                 href="/auth/register" 
-                className="px-4 py-2 text-sm font-bold text-[#5a3921] hover:scale-105 transition-transform text-center"
-                style={{
-                  backgroundImage: `url(${buttonTile.src})`,
-                  backgroundSize: "100% 100%",
-                  imageRendering: "pixelated",
-                  minWidth: "90px"
-                }}
+                className="px-3 py-1 text-sm font-bold text-[#5a3921] hover:text-[#7a5c2d] transition-colors"
               >
-                Sign up
+                Register
               </Link>
             </div>
 
@@ -157,7 +136,6 @@ export default function Header() {
               style={{
                 backgroundImage: `url(${buttonTile.src})`,
                 backgroundSize: "100% 100%",
-                imageRendering: "pixelated",
                 width: "44px",
                 height: "44px"
               }}
@@ -183,7 +161,6 @@ export default function Header() {
                 style={{
                   backgroundImage: `url(${buttonTile.src})`,
                   backgroundSize: "100% 100%",
-                  imageRendering: "pixelated",
                   borderLeft: '2px solid #7a5c2d'
                 }}
               >
