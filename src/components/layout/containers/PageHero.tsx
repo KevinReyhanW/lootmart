@@ -1,7 +1,6 @@
 "use client"
 
-import Link from 'next/link'
-import buttonTile from '@/assets/images/ui/button/button-brown.png'
+import Button from '@/components/ui/buttons/Button'
 
 export default function PageHero() {
   return (
@@ -15,26 +14,13 @@ export default function PageHero() {
         <p className="text-lg md:text-2xl mb-8 text-[#7a5c2d]">Your one-stop shop for epic gaming treasures</p>
 
         <div className="flex items-center justify-center space-x-4">
-          <Link
-            href="/products"
-            className="inline-flex items-center px-6 py-3 font-bold text-[#5a3921] rounded-sm shadow-md"
-            style={{
-              backgroundImage: `url(${buttonTile.src})`,
-              backgroundSize: '100% 100%'
-            }}
-          >
+          <Button href="/products" className="px-6 py-3 text-[#5a3921]" variant="tile">
             Browse Collection
-          </Link>
+          </Button>
 
-          <Link
-            href="/auth/register"
-            className="inline-flex items-center px-6 py-3 font-bold text-white rounded-sm shadow-md"
-            style={{
-              background: 'linear-gradient(90deg,#5a3921,#7a5c2d)'
-            }}
-          >
+          <Button href="/auth/register" className="px-6 py-3 text-white" variant="gradient">
             Get Started
-          </Link>
+          </Button>
         </div>
       </div>
     </section>

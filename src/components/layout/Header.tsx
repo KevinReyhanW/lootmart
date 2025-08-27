@@ -6,6 +6,7 @@ import { useState } from 'react'
 import { usePathname } from 'next/navigation'
 import lootmartIcon from '@/assets/images/icons/lootmart-icon.png'
 import buttonTile from '@/assets/images/ui/button/button-brown.png'
+import Button from '@/components/ui/buttons/Button'
 
 export default function Header() {
   const [isSearchOpen, setIsSearchOpen] = useState(false)
@@ -84,20 +85,16 @@ export default function Header() {
           {/* Right Side Items - Far right */}
           <div className="flex items-center space-x-4 ml-auto">
             {/* Mobile Search Toggle */}
-            <button 
+            <Button
               className="md:hidden p-2 text-[#5a3921] hover:scale-105 transition-transform"
               onClick={() => setIsSearchOpen(!isSearchOpen)}
-              style={{
-                backgroundImage: `url(${buttonTile.src})`,
-                backgroundSize: "100% 100%",
-                width: "44px",
-                height: "44px"
-              }}
+              style={{ width: 44, height: 44 }}
+              variant="tile"
             >
               <svg className="w-5 h-5 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
               </svg>
-            </button>
+            </Button>
 
             {/* Cart - No background */}
             <Link 
@@ -132,18 +129,11 @@ export default function Header() {
             </div>
 
             {/* Mobile Menu Button */}
-            <button className="p-2 text-[#5a3921] hover:scale-105 transition-transform md:hidden"
-              style={{
-                backgroundImage: `url(${buttonTile.src})`,
-                backgroundSize: "100% 100%",
-                width: "44px",
-                height: "44px"
-              }}
-            >
+            <Button className="p-2 text-[#5a3921] hover:scale-105 transition-transform md:hidden" variant="tile" style={{ width: 44, height: 44 }}>
               <svg className="w-5 h-5 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
               </svg>
-            </button>
+            </Button>
           </div>
         </div>
 

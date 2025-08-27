@@ -1,9 +1,9 @@
-export type Middleware<T = any> = (
-  next: (action: any) => any
-) => (action: any) => T;
+export type Middleware<T = unknown, A = unknown, R = unknown> = (
+  next: (action: A) => R
+) => (action: A) => T;
 
-export type Store<T> = {
-  getState: () => T;
-  dispatch: (action: any) => any;
+export type Store<TState = unknown, A = unknown, R = unknown> = {
+  getState: () => TState;
+  dispatch: (action: A) => R;
   subscribe: (listener: () => void) => () => void;
 };

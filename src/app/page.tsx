@@ -3,6 +3,7 @@ import Link from "next/link";
 import categories from "@/config/categories";
 import PageContainer from '@/components/layout/containers/PageContainer'
 import PageHero from '@/components/layout/containers/PageHero'
+import Button from '@/components/ui/buttons/Button'
 
 export default function Home() {
   return (
@@ -45,16 +46,9 @@ export default function Home() {
           <p className="text-xl mb-8 text-[#7a5c2d]">
             Join thousands of gamers who trust LootMart for their gaming essentials
           </p>
-          <Link
-            href="/auth/register"
-            className="inline-block px-8 py-4 text-[#5a3921] rounded-sm font-bold"
-            style={{
-              backgroundImage: `url('/images/ui/button/button-brown.png')`,
-              backgroundSize: '100% 100%'
-            }}
-          >
+          <Button href="/auth/register" className="px-8 py-4 text-[#5a3921]" variant="tile">
             Get Started Now
-          </Link>
+          </Button>
         </div>
       </section>
     </PageContainer>
