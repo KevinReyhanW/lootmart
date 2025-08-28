@@ -4,6 +4,7 @@ import Image from 'next/image'
 import Button from '@/components/ui/buttons/Button'
 import Modal from '@/components/ui/modals/Modal'
 import React, { useState } from 'react'
+import styles from '@/styles/components/ProductCard.module.css'
 
 type Product = {
   id: string
@@ -26,7 +27,7 @@ export default function ProductCard({ product }: { product: Product }) {
 
   return (
     <>
-      <div className={`relative bg-white rounded-lg overflow-hidden shadow-lg ${isEquipped ? 'equip-pulse' : ''}`}>
+      <div className={`relative bg-white rounded-lg overflow-hidden shadow-lg ${isEquipped ? styles.equipPulse : ''}`}>
       <div className="relative h-48 bg-gray-100">
         <Image src={product.image} alt={product.name} fill className="object-cover" />
       </div>
