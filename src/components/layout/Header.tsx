@@ -3,6 +3,7 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import { useState } from 'react'
+import { useCart } from '@/context/cart-context'
 import { usePathname } from 'next/navigation'
 import lootmartIcon from '@/assets/images/icons/lootmart-icon.png'
 import buttonTile from '@/assets/images/ui/button/button-brown.png'
@@ -10,7 +11,8 @@ import Button from '@/components/ui/buttons/Button'
 
 export default function Header() {
   const [isSearchOpen, setIsSearchOpen] = useState(false)
-  const [cartCount] = useState(3) // Example cart count
+  const { items } = useCart()
+  const cartCount = items.length
   const pathname = usePathname()
 
   // Navigation items

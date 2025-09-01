@@ -1,6 +1,6 @@
 'use client'
 
-import { createContext, useContext, useState } from 'react'
+import { createContext, useContext, useEffect, useState } from 'react'
 import type { CartItem } from '@/models'
 
 interface CartContextType {
@@ -14,7 +14,14 @@ interface CartContextType {
 const CartContext = createContext<CartContextType | undefined>(undefined)
 
 export function CartProvider({ children }: { children: React.ReactNode }) {
-  const [items, setItems] = useState<CartItem[]>([])
+  const [items, setItems] = useState<CartItem[]>(() => {
+    try {
+      const raw = typeof window !== 'undefined' ? localStorage.getItem('lootmart_cart') : null
+      return raw ? JSON.parse(raw) as CartItem[] : []
+    } catch (e) {
+      return []
+    }
+  })
 
   const addItem = (item: CartItem) => {
     setItems((prev) => {
@@ -45,6 +52,15 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
   const clearCart = () => {
     setItems([])
   }
+
+  // Persist to localStorage on changes
+  useEffect(() => {
+    try {
+      localStorage.setItem('lootmart_cart', JSON.stringify(items))
+    } catch (e) {
+      // ignore
+    }
+  }, [items])
 
   return (
     <CartContext.Provider

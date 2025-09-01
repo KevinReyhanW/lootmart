@@ -5,6 +5,7 @@ import Button from '@/components/ui/buttons/Button'
 import Modal from '@/components/ui/modals/Modal'
 import React, { useState } from 'react'
 import styles from '@/styles/components/ProductCard.module.css'
+import { useCart } from '@/context/cart-context'
 
 type Product = {
   id: string
@@ -17,6 +18,7 @@ type Product = {
 export default function ProductCard({ product }: { product: Product }) {
   const [isEquipped, setIsEquipped] = useState(false)
   const [isModalOpen, setIsModalOpen] = useState(false)
+  const { addItem } = useCart()
 
   const rarityColor = {
     common: 'bg-gray-300 text-gray-800',
@@ -50,7 +52,31 @@ export default function ProductCard({ product }: { product: Product }) {
           >
             Equip
           </Button>
-          <Button className="px-3 py-2 text-sm" variant="gradient" onClick={() => setIsModalOpen(true)}>Add to Cart</Button>
+          <Button
+            className="px-3 py-2 text-sm"
+            variant="gradient"
+            onClick={() => {
+              // Build a full CartItem with reasonable defaults
+              const cartItem = {
+                id: product.id,
+                name: product.name,
+                description: product.name,
+                price: product.price,
+                image: product.image,
+                category: product.rarity ?? 'misc',
+                inStock: true,
+                createdAt: new Date().toISOString(),
+                updatedAt: new Date().toISOString(),
+                quantity: 1
+              }
+              addItem(cartItem)
+              // Quick toast feedback
+              setIsModalOpen(true)
+              setTimeout(() => setIsModalOpen(false), 1000)
+            }}
+          >
+            Add to Cart
+          </Button>
         </div>
       </div>
       </div>
