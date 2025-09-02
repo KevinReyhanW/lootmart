@@ -4,6 +4,7 @@ import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { useCart } from '@/context/cart-context'
 import Button from '@/components/ui/buttons/Button'
+import { useOrders } from '@/hooks/useOrders/useOrders'
 
 export default function CheckoutPage() {
   const { items, clearCart } = useCart()
@@ -13,9 +14,19 @@ export default function CheckoutPage() {
 
   const total = items.reduce((s, i) => s + i.price * i.quantity, 0)
 
+  const { createOrder } = useOrders()
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    // In a real app you'd call an API here. We'll simulate success.
+    // Create a frontend order record
+    const order = {
+      id: `order_${Date.now()}_${Math.floor(Math.random() * 1000)}`,
+      items,
+      total,
+      customer: { name, email },
+      createdAt: new Date().toISOString()
+    }
+    createOrder(order)
     clearCart()
     router.push('/checkout/success')
   }
