@@ -20,7 +20,9 @@
 }
 
 body {
-  background: var(--background);
+  /* Site background: warm parchment -> header palette to give consistent LootMart vibe */
+  background: linear-gradient(180deg, #fff9f1 0%, #f7e1b8 45%, #f0d8b0 100%);
+  background-attachment: fixed;
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
