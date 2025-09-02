@@ -38,11 +38,11 @@ export default function CheckoutPage() {
         <form className="md:col-span-2 bg-white p-6 rounded-lg border-4 border-[#7a5c2d]" onSubmit={handleSubmit}>
           <div className="mb-4">
             <label className="block text-sm text-[#7a5c2d] mb-1">Name</label>
-            <input className="w-full border p-2 rounded" value={name} onChange={(e) => setName(e.target.value)} required />
+            <input className="w-full border p-2 rounded text-[#5a3921] bg-white" value={name} onChange={(e) => setName(e.target.value)} required />
           </div>
           <div className="mb-4">
             <label className="block text-sm text-[#7a5c2d] mb-1">Email</label>
-            <input type="email" className="w-full border p-2 rounded" value={email} onChange={(e) => setEmail(e.target.value)} required />
+            <input type="email" className="w-full border p-2 rounded text-[#5a3921] bg-white" value={email} onChange={(e) => setEmail(e.target.value)} required />
           </div>
 
           <div className="mb-4 text-sm text-[#7a5c2d]">Payment is simulated for demo purposes.</div>

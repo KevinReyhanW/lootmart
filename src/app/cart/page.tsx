@@ -35,7 +35,7 @@ export default function CartPage() {
                 <div className="font-bold text-[#5a3921]">{item.name}</div>
                 <div className="text-sm text-[#7a5c2d]">${item.price.toFixed(2)}</div>
                 <div className="mt-2 flex items-center space-x-2">
-                  <input type="number" min={1} value={item.quantity} onChange={(e) => updateQuantity(item.id, Number(e.target.value))} className="w-20 p-1 border rounded" />
+                  <input type="number" min={1} value={item.quantity} onChange={(e) => updateQuantity(item.id, Number(e.target.value))} className="w-20 p-1 border rounded text-[#5a3921] bg-white" />
                   <Button className="px-3 py-1" onClick={() => removeItem(item.id)}>Remove</Button>
                 </div>
               </div>
